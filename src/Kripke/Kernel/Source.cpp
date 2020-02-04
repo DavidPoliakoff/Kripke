@@ -56,6 +56,7 @@ struct SourceSdom {
 
 
     // Compute:  phi =  ell * psi
+    //kernel_wrapper<ExecPolicy>(
     RAJA::kernel<ExecPolicy>(
         camp::make_tuple(
             RAJA::TypedRangeSegment<Group>(0, num_groups),

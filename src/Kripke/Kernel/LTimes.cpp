@@ -51,7 +51,7 @@ struct LTimesSdom {
     auto ell = sdom_al.getView(field_ell);
 
     // Compute:  phi =  ell * psi
-    RAJA::kernel<ExecPolicy>(
+    kernel_wrapper<ExecPolicy>(
         camp::make_tuple(
             RAJA::TypedRangeSegment<Moment>(0, num_moments),
             RAJA::TypedRangeSegment<Direction>(0, num_directions),

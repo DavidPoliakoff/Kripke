@@ -178,7 +178,9 @@ int main(int argc, char **argv) {
   Kripke::Core::Comm::init(&argc, &argv);
 
   Kripke::Core::Comm comm;
-
+#ifdef KRIPKE_USE_KOKKOS
+  Kokkos::initialize();
+#endif
   int myid = comm.rank();
   int num_tasks = comm.size();
 
@@ -512,6 +514,9 @@ int main(int argc, char **argv) {
     printf("  Sweep efficiency :  %4.5lf [100.0 * SweepSubdomain time / SweepSolver time]\n", sweep_eff);
     printf("  Number of unknowns: %lu\n", (unsigned long) num_unknowns);
   }
+#ifdef KRIPKE_USE_KOKKOS
+  Kokkos::finalize();
+#endif
   
   // Cleanup and exit
   Kripke::Core::Comm::finalize();

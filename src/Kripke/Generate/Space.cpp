@@ -287,6 +287,7 @@ void Kripke::Generate::generateSpace(Kripke::Core::DataStore &data_store,
 
     RAJA::ReduceSum<RAJA::seq_reduce, MixElem> mixelem(MixElem{0});
     RAJA::forall<RAJA::seq_exec>(
+    //RAJA::forall<RAJA::seq_exec>(
       RAJA::TypedRangeSegment<Zone>(0, num_zones),
       [=](Zone z){
         ZoneMixture const &zone_mix = sdom_mix[*z];

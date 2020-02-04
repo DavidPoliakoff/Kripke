@@ -46,7 +46,7 @@ struct LPlusTimesSdom {
     auto ell_plus = sdom_al.getView(field_ell_plus); 
 
     // Compute:  rhs =  ell_plus * phi_out
-    RAJA::kernel<ExecPolicy>(
+    kernel_wrapper<ExecPolicy>(
         camp::make_tuple(
             RAJA::TypedRangeSegment<Direction>(0, num_directions),
             RAJA::TypedRangeSegment<Moment>(0, num_moments),

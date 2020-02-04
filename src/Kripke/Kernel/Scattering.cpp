@@ -70,7 +70,7 @@ struct ScatteringSdom {
     int num_groups_dst = set_group.size(sdom_dst);
     int num_moments =    set_moment.size(sdom_dst);
 
-    RAJA::kernel<ExecPolicy>(
+    kernel_wrapper<ExecPolicy>(
         camp::make_tuple(
             RAJA::TypedRangeSegment<Moment>(0, num_moments),
             RAJA::TypedRangeSegment<Group>(0, num_groups_dst),

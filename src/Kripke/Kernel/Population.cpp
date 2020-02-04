@@ -49,6 +49,7 @@ struct PopulationSdom {
     RAJA::ReduceSum<ReducePolicy, double> part_red(0.0);
 
     RAJA::kernel<ExecPolicy>(
+    //kernel_wrapper<ExecPolicy>(
         camp::make_tuple(
             RAJA::TypedRangeSegment<Direction>(0, num_directions),
             RAJA::TypedRangeSegment<Group>(0, num_groups),

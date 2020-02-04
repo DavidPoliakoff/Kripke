@@ -79,6 +79,12 @@ if(ENABLE_CHAI)
   
 endif()
 
+option(ENABLE_KOKKOS "Enable Kokkos as a backend" Off)
+if(ENABLE_KOKKOS)
+  add_subdirectory(tpl/kokkos)
+  set(KRIPKE_USE_KOKKOS 1)
+  list(APPEND KRIPKE_DEPENDS kokkos)
+endif()
 
 #
 # Configure RAJA (REQUIRED)

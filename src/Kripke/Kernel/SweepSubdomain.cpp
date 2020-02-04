@@ -72,7 +72,7 @@ struct SweepSdom {
 
     auto zone_layout = data_store.getVariable<ProductSet<3>>("Set/Zone").getLayout(sdom_id);
 
-    RAJA::kernel<ExecPolicy>(
+    kernel_wrapper<ExecPolicy>(
         camp::make_tuple(
             RAJA::TypedRangeSegment<Direction>(0, num_directions),
             RAJA::TypedRangeSegment<Group>(0, num_groups),

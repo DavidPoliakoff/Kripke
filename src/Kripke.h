@@ -13,6 +13,10 @@
 
 #include <RAJA/RAJA.hpp>
 
+#ifdef KRIPKE_USE_KOKKOS
+#include <Kokkos_Core.hpp>
+#endif
+
 #include <string>
 #include <vector>
 #include <stdio.h>
